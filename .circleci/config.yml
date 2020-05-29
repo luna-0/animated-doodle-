@@ -7,7 +7,6 @@ orbs:
 # Orchestrate or schedule a set of jobs
 workflows:
   # Name the workflow "welcome"
-  GCLOUD_SERVICE_KEY
   welcome:
     # Run the welcome/run job in its own container
     jobs:

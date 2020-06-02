@@ -22,7 +22,7 @@ jobs:
           # Export base64 encoded google-services.json
           # into local bash variables
           name: Export Google Services Json
-          command: echo $GOOGLE_SERVICES | base64 --decode > ~/repo/app/google-services.json
+          command: echo $GOOGLE_SERVICES | base64 --decode > app/google-services.json
       - run:
           # Decode the base64 string
           name: Decode Google Services Json

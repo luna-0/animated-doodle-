@@ -18,6 +18,15 @@ jobs:
       JVM_OPTS: -Xmx3200m
 
     steps:
+      - run:
+          # Export base64 encoded google-services.json
+          # into local bash variables
+          name: Export Google Services Json
+          command: echo 'export GOOGLE_SERVICES_JSON="$GOOGLE_SERVICES_JSON"' >> $BASH_ENV
+      - run:
+          # Decode the base64 string
+          name: Decode Google Services Json
+          command: echo $GOOGLE_SERVICES_JSON | base64 -di > app/google-services.json
       - checkout
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
